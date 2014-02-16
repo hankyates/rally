@@ -18,4 +18,10 @@ describe('Board', function() {
     });
   });
 
+  describe('get', function() {
+    it('should return a cell', function() {
+      expect(this.board.get(2, 3) instanceof Cell).to.be.true;
+    });
+  });
+
 });
