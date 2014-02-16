@@ -5,6 +5,9 @@ function Cell(x, y, value) {
 };
 
 Cell.prototype = {
+  set: function(value) {
+    this.value = value;
+  },
   up: function() {
     return [this.x, this.y-1];
   },

@@ -27,6 +27,14 @@ describe('Cell', function() {
     });
   });
 
+  describe('set', function() {
+    it('should set value to provided value', function() {
+      var value = 'testValue';
+      this.cell.set(value);
+      expect(this.cell.value).to.equal(value);
+    });
+  });
+
   describe('up', function() {
     it('should return a an array with a y value decremented', function() {
       expect(this.cell.up()).to.deep.equal([this.x, this.y-1]);
