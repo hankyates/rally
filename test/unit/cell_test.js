@@ -1,5 +1,5 @@
 var expect = require('chai').expect,
-    Cell = require('../src/Cell');
+    Cell = require('../../src/Cell');
 
 describe('Cell', function() {
   before(function() {

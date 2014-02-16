@@ -1,5 +1,5 @@
 var expect = require('chai').expect,
-    Board = require('../src/Board');
+    Board = require('../../src/Board');
 
 describe('Board', function() {
   before(function() {
@@ -7,7 +7,7 @@ describe('Board', function() {
     this.board = new Board(this.size);
   });
 
-  describe(' constructor', function() {
+  describe('constructor', function() {
     it('should return an object', function() {
       expect(typeof this.board === 'object').to.be.true;
     });
@@ -23,10 +23,10 @@ describe('Board', function() {
     });
   });
 
-  describe(' get', function() {
+  describe('get', function() {
     it('should return the value of a cell', function() {
       expect(this.board.get(1, 2)).to.equal(this.board.arr[2][1]);
     });
-
   });
+
 });
