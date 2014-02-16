@@ -15,6 +15,13 @@ describe('Board', function() {
     it('should create an array with number or rows passed in', function() {
       expect(this.board.arr.length).to.equal(this.size);
     });
+
+    it('should create an array for each row with same number of columns', function() {
+      this.board.arr.forEach(function(col) {
+        expect(col.length).to.equal(this.size);
+      }, this);
+    });
+
   });
 
 });
