@@ -9,7 +9,7 @@ describe('Cell', function() {
     this.cell = new Cell(this.x, this.y, this.value);
   });
 
-  describe(' constructor', function() {
+  describe('constructor', function() {
     it('should return an object', function() {
       expect(typeof this.cell === 'object').to.be.true;
     });
@@ -24,6 +24,12 @@ describe('Cell', function() {
 
     it('should assign an value', function() {
       expect(this.cell.value).to.equal(this.value);
+    });
+  });
+
+  describe('up', function() {
+    it('should return a an array with a y value decremented', function() {
+      expect(this.cell.up()).to.deep.equal([this.x, this.y-1]);
     });
   });
 
