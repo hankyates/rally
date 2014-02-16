@@ -33,4 +33,46 @@ describe('Cell', function() {
     });
   });
 
+  describe('up_right', function() {
+    it('should return a an array with a x value incremented y value decremented', function() {
+      expect(this.cell.up_right()).to.deep.equal([this.x+1, this.y-1]);
+    });
+  });
+
+  describe('right', function() {
+    it('should return a an array with a x value incremented', function() {
+      expect(this.cell.right()).to.deep.equal([this.x+1, this.y]);
+    });
+  });
+
+  describe('down_right', function() {
+    it('should return a an array with a x value incremented and y value incremented', function() {
+      expect(this.cell.down_right()).to.deep.equal([this.x+1, this.y+1]);
+    });
+  });
+
+  describe('down', function() {
+    it('should return a an array with a y value incremented', function() {
+      expect(this.cell.down()).to.deep.equal([this.x, this.y+1]);
+    });
+  });
+
+  describe('down_left', function() {
+    it('should return a an array with a x value decremented and y value incremented', function() {
+      expect(this.cell.down_left()).to.deep.equal([this.x-1, this.y+1]);
+    });
+  });
+
+  describe('left', function() {
+    it('should return a an array with a x value decremented', function() {
+      expect(this.cell.left()).to.deep.equal([this.x-1, this.y]);
+    });
+  });
+
+  describe('up_left', function() {
+    it('should return a an array with a x value decremented and y value decremented', function() {
+      expect(this.cell.up_left()).to.deep.equal([this.x-1, this.y-1]);
+    });
+  });
+
 });
