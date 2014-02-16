@@ -1,14 +1,20 @@
 function Board(rows){
   this.arr = [];
 
-  for (var i = 0; i < rows; i++) {
-    this.arr[i] = [];
-    for (var j = 0; j < rows; j++) {
-      this.arr[i][j] = Math.round(Math.random());
+  for (var y = 0; y < rows; y++) {
+    this.arr[y] = [];
+    for (var x = 0; x < rows; x++) {
+      this.arr[y][x] = Math.round(Math.random());
     }
   };
 
   return this;
 };
+
+Board.prototype = {
+  get: function(x, y) {
+    return this.arr[y][x];
+  }
+}
 
 module.exports = Board;

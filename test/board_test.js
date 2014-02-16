@@ -2,7 +2,7 @@ var expect = require('chai').expect,
     Board = require('../src/Board');
 
 describe('Board', function() {
-  beforeEach(function() {
+  before(function() {
     this.size = 10;
     this.board = new Board(this.size);
   });
@@ -21,7 +21,12 @@ describe('Board', function() {
         expect(col.length).to.equal(this.size);
       }, this);
     });
-
   });
 
+  describe(' get', function() {
+    it('should return the value of a cell', function() {
+      expect(this.board.get(1, 2)).to.equal(this.board.arr[2][1]);
+    });
+
+  });
 });
