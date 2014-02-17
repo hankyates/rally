@@ -8,6 +8,20 @@ Cell.prototype = {
   set: function(value) {
     this.value = value;
   },
+  kill: function() {
+    if (this.value)
+      this.value = 0;
+  },
+  reanimate: function() {
+    if (!this.value)
+      this.value = 1;
+  },
+  isAlive: function() {
+    return !!this.value;
+  },
+  isDead: function() {
+    return !this.value;
+  },
   up: function() {
     return [this.x, this.y-1];
   },

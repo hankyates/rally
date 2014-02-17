@@ -35,6 +35,36 @@ describe('Cell', function() {
     });
   });
 
+  describe('kill', function() {
+    it('should kill the cell if it is alive', function() {
+      this.cell.set(1);
+      this.cell.kill();
+      expect(this.cell.value).to.equal(0);
+    });
+  });
+
+  describe('reanimate', function() {
+    it('should bring the cell back to live if its dead', function() {
+      this.cell.set(0);
+      this.cell.reanimate();
+      expect(this.cell.value).to.equal(1);
+    });
+  });
+
+  describe('isAlive', function() {
+    it('should return true if the cell is alive', function() {
+      this.cell.set(1);
+      expect(this.cell.isAlive()).to.be.true;
+    });
+  });
+
+  describe('isDead', function() {
+    it('should return true if the cell is dead', function() {
+      this.cell.set(0);
+      expect(this.cell.isDead()).to.be.true;
+    });
+  });
+
   describe('up', function() {
     it('should return a an array with a y value decremented', function() {
       expect(this.cell.up()).to.deep.equal([this.x, this.y-1]);
