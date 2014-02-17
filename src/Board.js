@@ -44,6 +44,8 @@ Board.prototype = {
 
     return livingNeightboors;
   },
+  nextGeneration: function() {
+  },
   print: function() {
     for (var y = 0; y < this.arr.length; y++) {
       for (var x = 0; x < this.arr.length; x++) {
