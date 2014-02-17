@@ -4,7 +4,7 @@ var expect = require('chai').expect,
     Board = require('../../src/Board');
 
 describe('Board', function() {
-  before(function() {
+  beforeEach(function() {
     this.size = 10;
     this.board = new Board(this.size);
   });
@@ -32,7 +32,7 @@ describe('Board', function() {
   });
 
   describe('noOfLivingNeighboors', function() {
-    before(function() {
+    beforeEach(function() {
       this.board.arr = [
         [new Cell(0, 0, 1), new Cell(0, 1, 1), new Cell(0, 2, 1)],
         [new Cell(1, 0, 1), new Cell(1, 1, 1), new Cell(1, 2, 1)],
@@ -60,7 +60,7 @@ describe('Board', function() {
   });
 
   describe('nextGeneration', function() {
-    before(function() {
+    beforeEach(function() {
       this.board.arr = [
         [new Cell(0, 0, 1), new Cell(0, 1, 0), new Cell(0, 2, 1)],
         [new Cell(1, 0, 0), new Cell(1, 1, 1), new Cell(1, 2, 1)],
@@ -70,17 +70,16 @@ describe('Board', function() {
     });
 
     it('should kill cells with less than two living neighboors', function() {
-      expect(this.board.get(0, 0).value).to.equal(0);
+      expect(this.board.get([0, 0]).value).to.equal(0);
     });
 
     it('should kill cells with more than three living neighboors', function() {
-      expect(this.board.get(1, 1).value).to.equal(0);
+      expect(this.board.get([1, 1]).value).to.equal(0);
     });
 
     it('should reanimate dead cells with three living neighboors', function() {
-      expect(this.board.get(2, 2).value).to.equal(1);
+      expect(this.board.get([2, 2]).value).to.equal(1);
     });
-
   });
 
 });
