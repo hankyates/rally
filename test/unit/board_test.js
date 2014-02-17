@@ -1,11 +1,8 @@
 var expect = require('chai').expect,
+    Cell = require('../../src/Cell'),
     Board = require('../../src/Board');
 
-describe('Board', function() {
-  before(function() {
-    this.size = 10;
-    this.board = new Board(this.size);
-  });
+describe('Board', function() { before(function() { this.size = 10; this.board = new Board(this.size); });
 
   describe('constructor', function() {
     it('should return an object', function() {
@@ -25,7 +22,21 @@ describe('Board', function() {
 
   describe('get', function() {
     it('should return the value of a cell', function() {
-      expect(this.board.get(1, 2)).to.equal(this.board.arr[2][1]);
+      expect(this.board.get([1, 2])).to.equal(this.board.arr[2][1]);
+    });
+  });
+
+  describe('getLivingNeighboors', function() {
+    before(function() {
+      this.board.arr = [
+        [new Cell(0, 0, 1), new Cell(0, 1, 1), new Cell(0, 2, 1)],
+        [new Cell(1, 0, 1), new Cell(1, 1, 1), new Cell(1, 2, 1)],
+        [new Cell(2, 0, 1), new Cell(2, 1, 1), new Cell(2, 2, 1)]
+      ]
+    });
+
+    it('should return the number of living neighboors for a cell', function() {
+      expect(this.board.getLivingNeighboors([1, 1])).to.equal(8);
     });
   });
 

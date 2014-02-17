@@ -16,6 +16,10 @@ describe('nextGeneration', function() {
     it('should assign board passed in to public member', function() {
       expect(this.nextGeneration.board).to.deep.equal(this.board);
     });
+
+    it('should assign liveNeighboors to 0', function() {
+      expect(this.nextGeneration.liveNeighboors).to.equal(0);
+    });
   });
 
 });

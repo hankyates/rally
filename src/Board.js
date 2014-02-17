@@ -14,8 +14,35 @@ function Board(rows){
 };
 
 Board.prototype = {
-  get: function(x, y) {
-    return this.arr[y][x];
+  get: function(coordinates) {
+    if (coordinates instanceof Cell){
+      return this.arr[coordinates.y][coordinates.x];
+    }
+
+    return this.arr[coordinates[1]][coordinates[0]];
+  },
+  getLivingNeighboors: function(coordinates) {
+    var livingNeightboors = 0,
+        cell = this.get(coordinates);
+
+    if(this.get(cell.up()).value)
+      livingNeightboors++;
+    if(this.get(cell.up_right()).value)
+      livingNeightboors++;
+    if(this.get(cell.right()).value)
+      livingNeightboors++;
+    if(this.get(cell.down_right()).value)
+      livingNeightboors++;
+    if(this.get(cell.down()).value)
+      livingNeightboors++;
+    if(this.get(cell.down_left()).value)
+      livingNeightboors++;
+    if(this.get(cell.left()).value)
+      livingNeightboors++;
+    if(this.get(cell.up_left()).value)
+      livingNeightboors++;
+
+    return livingNeightboors;
   }
 }
 
