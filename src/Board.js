@@ -21,7 +21,7 @@ Board.prototype = {
 
     return this.arr[coordinates[1]][coordinates[0]];
   },
-  getLivingNeighboors: function(coordinates) {
+  noOfLivingNeighboors: function(coordinates) {
     var livingNeightboors = 0,
         cell = this.get(coordinates);
 
@@ -43,6 +43,14 @@ Board.prototype = {
       livingNeightboors++;
 
     return livingNeightboors;
+  },
+  print: function() {
+    for (var y = 0; y < this.arr.length; y++) {
+      for (var x = 0; x < this.arr.length; x++) {
+        process.stdout.write(this.arr[y][x].value + ' ');
+      };
+      process.stdout.write('\n');
+    };
   }
 }
 

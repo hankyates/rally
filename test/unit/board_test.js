@@ -3,7 +3,11 @@ var expect = require('chai').expect,
     Cell = require('../../src/Cell'),
     Board = require('../../src/Board');
 
-describe('Board', function() { before(function() { this.size = 10; this.board = new Board(this.size); });
+describe('Board', function() {
+  before(function() {
+    this.size = 10;
+    this.board = new Board(this.size);
+  });
 
   describe('constructor', function() {
     it('should return an object', function() {
@@ -27,7 +31,7 @@ describe('Board', function() { before(function() { this.size = 10; this.board = 
     });
   });
 
-  describe('getLivingNeighboors', function() {
+  describe('noOfLivingNeighboors', function() {
     before(function() {
       this.board.arr = [
         [new Cell(0, 0, 1), new Cell(0, 1, 1), new Cell(0, 2, 1)],
@@ -38,19 +42,19 @@ describe('Board', function() { before(function() { this.size = 10; this.board = 
     });
 
     it('should return the number of living neighboors for a cell', function() {
-      expect(this.board.getLivingNeighboors([1, 1])).to.equal(8);
+      expect(this.board.noOfLivingNeighboors([1, 1])).to.equal(8);
     });
 
     it('should call get to get Cell passed in', function() {
       this.board.get = sinon.stub().returns(new Cell(1, 1, 1));
-      this.board.getLivingNeighboors(this.coordinates)
+      this.board.noOfLivingNeighboors(this.coordinates);
       expect(this.board.get.calledWith(this.coordinates)).to.be.true;
     });
 
     it('should call get for each cell direction and once to get cell', function() {
       var coordinates = [1, 1]
       this.board.get = sinon.stub().returns(new Cell(1, 1, 1));
-      this.board.getLivingNeighboors(this.coordinates)
+      this.board.noOfLivingNeighboors(this.coordinates);
       expect(this.board.get.callCount).to.equal(9);
     });
   });
