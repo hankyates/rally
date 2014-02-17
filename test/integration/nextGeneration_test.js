@@ -10,7 +10,11 @@ describe('nextGeneration', function() {
 
   describe('constructor', function() {
     it('should return an object', function() {
-      expect(typeof this.cell === 'object').to.be.true;
+      expect(typeof this.nextGeneration === 'object').to.be.true;
+    });
+
+    it('should assign board passed in to public member', function() {
+      expect(this.nextGeneration.board).to.deep.equal(this.board);
     });
   });
 
