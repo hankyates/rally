@@ -4,6 +4,7 @@ rally
 ### Installation
 
 `npm install grunt -g`
+
 `npm i`
 
 ### Sample Implementation
@@ -11,7 +12,8 @@ rally
 `node`
 
 ```js
-Var board = require('src/Board');
+var Board = require('src/Board'),
+    board = new Board();
 
 board.print();
 board.nextGeneration();
